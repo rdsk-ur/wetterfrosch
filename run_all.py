@@ -2,8 +2,6 @@
 
 # runs all crawlers that can be found in the crawlers base directory
 
-# TODO: run this script forever and automatically schedule the requests
-
 import os
 from pathlib import Path
 import subprocess
@@ -19,6 +17,7 @@ def find_entry_point(adapter_dir: Path) -> Path:
 
 def main():
     adapter_base_dir = Path(__file__).resolve().parent/"crawlers"
+    os.chdir(str(adapter_base_dir.parent))
 
     for adapter_dir in adapter_base_dir.iterdir():
         try:
