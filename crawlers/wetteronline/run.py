@@ -59,7 +59,7 @@ def main():
     now_stamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
     print("Open the web page...", end="", flush=True)
-    driver.get(f"https://www.wetteronline.de/wetter/{location}")
+    driver.get("https://www.wetteronline.de/wetter/" + location)
     print("done")
 
     pred_1 = forecast_1(driver, now_date)

@@ -20,21 +20,21 @@ def process_day(driver, day_offset: int, today: datetime):
     current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     # yeah, I know, weird choice of URL names
     if day_offset == 1:
-        driver.get(f"{base_url}/wetterbericht-morgen.html")
+        driver.get(base_url + "/wetterbericht-morgen.html")
     elif day_offset == 2:
-        driver.get(f"{base_url}/wetterbericht-uebermorgen.html")
+        driver.get(base_url + "/wetterbericht-uebermorgen.html")
     elif day_offset == 3:
-        driver.get(f"{base_url}/wetter-bericht.html")
+        driver.get(base_url + "/wetter-bericht.html")
     elif day_offset == 4:
-        driver.get(f"{base_url}/wettervorhersage.html")
+        driver.get(base_url + "/wettervorhersage.html")
     elif day_offset == 5:
-        driver.get(f"{base_url}/wetter-vorhersage.html")
+        driver.get(base_url + "/wetter-vorhersage.html")
     elif day_offset == 6:
-        driver.get(f"{base_url}/wettervorschau.html")
+        driver.get(base_url + "/wettervorschau.html")
     elif day_offset == 7:
-        driver.get(f"{base_url}/wetter-vorschau.html")
+        driver.get(base_url + "/wetter-vorschau.html")
     elif day_offset <= 14:
-        driver.get(f"{base_url}/tag-{day_offset + 1}.html")
+        driver.get(base_url + "/tag-{}.html".format(day_offset + 1))
 
     return pd.DataFrame({
         "forecast_time": [today + timedelta(day_offset, h * 60 * 60) for h in range(25)],
