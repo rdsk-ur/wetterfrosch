@@ -18,6 +18,7 @@ def find_entry_point(adapter_dir: Path) -> Path:
 def main():
     adapter_base_dir = Path(__file__).resolve().parent/"crawlers"
     os.chdir(str(adapter_base_dir.parent))
+    (adapter_base_dir.parent/"data").mkdir(exist_ok=True)
 
     for adapter_dir in adapter_base_dir.iterdir():
         try:
