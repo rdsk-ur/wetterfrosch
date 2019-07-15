@@ -6,6 +6,17 @@ Compare different weather websites for your location and find out which one's th
 
 A script schedules a set of crawlers for various weather websites at certain times of the day and fetches data continously. Each crawler produces it's own data file which has to be merged if a full analysis is planned.
 
+## How to run
+
+You need to have [Pipenv](https://docs.pipenv.org/en/latest/) installed. Run the following to install the dependencies and run all crawlers:
+
+``` sh
+# install dependencies
+pipenv install
+# run the crawlers
+pipenv run ./run_all.py
+```
+
 ## Crawlers
 
 For each weather station, a separate crawler has to be implemented. Each crawler is located in a separate folder in the the `crawlers` directory (e.g. `crawlers/wetteronline`). You can use any framework or programming language for the crawlers as long as the following criteria are implemented:
