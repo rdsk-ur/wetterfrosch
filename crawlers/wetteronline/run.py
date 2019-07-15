@@ -71,7 +71,7 @@ def main():
     df["get_time"] = now_stamp
     path_1 = out_stem.with_name(out_stem.name + "_1.csv")
     if path_1.exists():
-        pd.concat(pd.read_csv(path_1), df, ignore_index=False).to_csv(path_1, index=False)
+        pd.concat([pd.read_csv(path_1), df], ignore_index=False).to_csv(path_1, index=False)
     else:
         df.to_csv(path_1, index=False)
 
@@ -79,7 +79,7 @@ def main():
     df["get_time"] = now_stamp
     path_3 = out_stem.with_name(out_stem.name + "_3.csv")
     if path_3.exists():
-        pd.concat(pd.read_csv(path_3), df, ignore_index=False).to_csv(path_3, index=False)
+        pd.concat([pd.read_csv(path_3), df], ignore_index=False).to_csv(path_3, index=False)
     else:
         df.to_csv(path_3, index=False)
 
