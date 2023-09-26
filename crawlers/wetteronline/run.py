@@ -5,10 +5,11 @@
 #   - the next (for every hour)
 #   - the next 3 days (three times a day)
 
-from datetime import datetime, timedelta, date
+from datetime import date, datetime, timedelta
+from pathlib import Path
+
 import pandas as pd
 from selenium import webdriver
-from pathlib import Path
 
 out_stem = Path("data/wetteronline")
 out_stem.parent.mkdir(exist_ok=True, parents=True)

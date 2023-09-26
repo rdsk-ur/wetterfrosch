@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 
-from pathlib import Path
 from datetime import datetime
+from pathlib import Path
+
 import pandas as pd
 import requests
 
@@ -21,7 +22,7 @@ def main():
     current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
     token = (Path(__file__).resolve().parent/"token").read_text().strip()
-    response = requests.get("https://api.darksky.net/forecast/{token}/{lat},{lon}?units=ca".format(token=token, lat=lat, lon=lon))
+    response = requests.get(f"https://api.darksky.net/forecast/{token}/{lat},{lon}?units=ca")
 
     if response.status_code != 200:
         print("Unexpected status code:", response.status_code)

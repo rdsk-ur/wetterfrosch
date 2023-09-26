@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 
+from datetime import date, datetime, timedelta
+from pathlib import Path
+
 import pandas as pd
 from selenium import webdriver
-from datetime import timedelta, date, datetime
-from pathlib import Path
 from tqdm import trange
 
 output_path = Path("data/wetter-de.csv")
@@ -34,7 +35,7 @@ def process_day(driver, day_offset: int, today: datetime):
     elif day_offset == 7:
         driver.get(base_url + "/wetter-vorschau.html")
     elif day_offset <= 14:
-        driver.get(base_url + "/tag-{}.html".format(day_offset + 1))
+        driver.get(base_url + f"/tag-{day_offset + 1}.html")
 
     return pd.DataFrame({
         "forecast_time": [today + timedelta(day_offset, h * 60 * 60) for h in range(25)],
